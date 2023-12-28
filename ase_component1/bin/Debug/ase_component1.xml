@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ase_component1</name>
+    </assembly>
+    <members>
+        <member name="T:ase_component1.Commands.CommandParser">
+            <summary>
+            Parses and executes drawing commands to create shapes on a panel.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.#ctor(System.Drawing.Graphics,System.Windows.Forms.Panel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ase_component1.Commands.CommandParser"/> class.
+            </summary>
+            <param name="graphics">The graphics context used for drawing shapes.</param>
+            <param name="panel1">The panel on which shapes are drawn.</param>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.runExecute(System.String,System.String)">
+            <summary>
+            Executes the specified run and command based on the provided input.
+            </summary>
+            <param name="run">The run command.</param>
+            <param name="command">The drawing command.</param>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.ExecuteCommands(System.String)">
+            <summary>
+            Executes a series of drawing commands to create shapes.
+            </summary>
+            <param name="commands">The drawing commands.</param>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.DrawShapes">
+            <summary>
+            Draws the shapes on the panel based on the provided commands.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.GetDrawingBitmap">
+            <summary>
+            Gets the bitmap representation of the current drawing.
+            </summary>
+            <returns>The bitmap containing the drawn shapes.</returns>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.ClearShapes">
+            <summary>
+            Clears the list of shapes.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.SaveProgramToFile(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Saves the program to a text file.
+            </summary>
+            <param name="filename">The name of the file to save.</param>
+            <param name="program">The list of commands to save.</param>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.LoadProgramFromFile(System.String)">
+            <summary>
+            Loads a program from a text file.
+            </summary>
+            <param name="filename">The name of the file to load.</param>
+            <returns>The list of commands loaded from the file.</returns>
+        </member>
+        <member name="M:ase_component1.Commands.CommandParser.ValidateProgramFormat(System.String[])">
+            <summary>
+            Validates the format of the program based on valid shape keywords.
+            </summary>
+            <param name="lines">The array of lines in the program.</param>
+            <returns>True if the program format is valid; otherwise, false.</returns>
+        </member>
+        <member name="T:ase_component1.Commands.Line">
+            <summary>
+            Represents a line shape.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.Line.#ctor(System.Drawing.Point,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ase_component1.Commands.Line"/> class.
+            </summary>
+            <param name="despoint">The destination point of the line.</param>
+            <param name="x">The x-coordinate of the line.</param>
+            <param name="y">The y-coordinate of the line.</param>
+            <param name="color">The color of the line.</param>
+        </member>
+        <member name="M:ase_component1.Commands.Line.Draw(System.Drawing.Graphics,System.Boolean)">
+            <summary>
+            Draws the line on the specified graphics context.
+            </summary>
+            <param name="g">The graphics context.</param>
+            <param name="fill">A flag indicating whether the line should be filled (ignored in the case of a line).</param>
+        </member>
+        <member name="T:ase_component1.Commands.Rectangle">
+            <summary>
+            Represents a rectangle shape.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.Rectangle.#ctor(System.Int32,System.Int32,System.Drawing.Color,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ase_component1.Commands.Rectangle"/> class.
+            </summary>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="color">The color of the rectangle.</param>
+            <param name="x">The x-coordinate of the rectangle.</param>
+            <param name="y">The y-coordinate of the rectangle.</param>
+            <param name="fill">A flag indicating whether the rectangle should be filled.</param>
+        </member>
+        <member name="M:ase_component1.Commands.Rectangle.Draw(System.Drawing.Graphics,System.Boolean)">
+            <summary>
+            Draws the rectangle on the specified graphics context.
+            </summary>
+            <param name="g">The graphics context.</param>
+            <param name="fill">A flag indicating whether the rectangle should be filled.</param>
+        </member>
+        <member name="T:ase_component1.Commands.Shape">
+            <summary>
+            Represents an abstract shape with properties such as color, position, and fill.
+            </summary>
+        </member>
+        <member name="F:ase_component1.Commands.Shape.color">
+            <summary>
+            Gets or sets the color of the shape.
+            </summary>
+        </member>
+        <member name="F:ase_component1.Commands.Shape.x">
+            <summary>
+            Gets or sets the x-coordinate of the shape's position.
+            </summary>
+        </member>
+        <member name="F:ase_component1.Commands.Shape.y">
+            <summary>
+            Gets or sets the y-coordinate of the shape's position.
+            </summary>
+        </member>
+        <member name="F:ase_component1.Commands.Shape.fill">
+            <summary>
+            Gets or sets a value indicating whether the shape should be filled.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.Shape.#ctor(System.Drawing.Color,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ase_component1.Commands.Shape"/> class.
+            </summary>
+            <param name="color">The color of the shape.</param>
+            <param name="x">The x-coordinate of the shape's position.</param>
+            <param name="y">The y-coordinate of the shape's position.</param>
+            <param name="fill">A value indicating whether the shape should be filled.</param>
+        </member>
+        <member name="M:ase_component1.Commands.Shape.Draw(System.Drawing.Graphics,System.Boolean)">
+            <summary>
+            Draws the shape on the specified graphics context.
+            </summary>
+            <param name="g">The graphics context on which to draw the shape.</param>
+            <param name="fill">A value indicating whether the shape should be filled.</param>
+        </member>
+        <member name="T:ase_component1.Commands.Triangle">
+            <summary>
+            Represents a triangle shape.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Commands.Triangle.#ctor(System.Int32,System.Drawing.Color,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ase_component1.Commands.Triangle"/> class.
+            </summary>
+            <param name="sideLength">The length of each side of the triangle.</param>
+            <param name="color">The color of the triangle.</param>
+            <param name="x">The x-coordinate of the triangle.</param>
+            <param name="y">The y-coordinate of the triangle.</param>
+            <param name="fill">A flag indicating whether the triangle should be filled.</param>
+        </member>
+        <member name="M:ase_component1.Commands.Triangle.Draw(System.Drawing.Graphics,System.Boolean)">
+            <summary>
+            Draws the triangle on the specified graphics context.
+            </summary>
+            <param name="g">The graphics context.</param>
+            <param name="fill">A flag indicating whether the triangle should be filled.</param>
+        </member>
+        <member name="M:ase_component1.Commands.Triangle.CalculateHeight">
+            <summary>
+            Calculates the height of the triangle.
+            </summary>
+            <returns>The height of the triangle.</returns>
+        </member>
+        <member name="T:ase_component1.Form1">
+            <summary>
+            Main form of the application responsible for the user interface and interaction.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.#ctor">
+            <summary>
+            Constructor for initializing the Form1 instance.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.run_Click(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for the "Run" button click.
+            Executes the entered drawing command and updates the drawing panel accordingly.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.panel1_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Event handler for the drawing panel's Paint event.
+            Draws the image representation of the current drawing on the panel.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.syntax_Click(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for the "Syntax Check" button click.
+            Checks the syntax of the entered drawing commands and provides feedback.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for the "Exit" button click.
+            Closes the application after confirming with the user.
+            </summary>
+        </member>
+        <member name="F:ase_component1.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ase_component1.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ase_component1.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:ase_component1.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ase_component1.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ase_component1.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
